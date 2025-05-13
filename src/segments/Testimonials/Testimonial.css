@@ -1,0 +1,90 @@
+#testimonials {
+    position: relative;
+}
+
+#testimonials .spotlight {
+    height: 200px;
+    width: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#testimonials .testimonials-wrapper {
+    margin-top: 40px;
+}
+
+#testimonials .testimonial {
+    height: auto;
+    text-align: center;
+    background: var(--bg-secondary);
+    padding: 30px 20px;
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    flex-direction: column;
+    border-radius: 1.5rem;
+
+    /* Added for animated border */
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+#testimonials .testimonial::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 1.5rem;
+    padding: 2px;
+    background: linear-gradient(45deg, #00f0ff, #ff00cc, #00ff99, #00f0ff);
+    background-size: 300% 300%;
+    animation: move-border 4s linear infinite;
+
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+
+    pointer-events: none;
+    z-index: -1;
+}
+
+@keyframes move-border {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+#testimonials .testimonial .top {
+    flex: 1;
+    color: var(--text-muted);
+}
+
+#testimonials .testimonial .star-container {
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 20px;
+    color: var(--color-warning);
+}
+
+#testimonials .testimonial .profile {
+    margin: auto;
+    margin-bottom: 20px;
+    border-radius: 100%;
+    overflow: hidden;
+}
+
+#testimonials .testimonial .job-title {
+    color: var(--text-muted);
+}
